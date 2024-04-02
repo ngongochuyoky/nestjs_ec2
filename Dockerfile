@@ -4,7 +4,7 @@ FROM node:18-alpine as build
 
 WORKDIR /usr/src/app
 
-COPY package*.json
+COPY package*.json ./
 
 RUN npm install
 
@@ -23,7 +23,7 @@ WORKDIR  /usr/src/app
 
 COPY --from=build /usr/src/app/dist ./dist
 
-COPY package*.json
+COPY package*.json ./
 
 RUN npm install --only=production
 
